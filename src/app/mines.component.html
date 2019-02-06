@@ -1,0 +1,41 @@
+<!-- <svg width="1050" height="800">
+	<rect width="1050" height="560" style="fill:rgb(255,255,255);stroke-width:3;stroke:rgb(0,0,0)" />
+	 -->
+	<!-- <line x1="35" y1="0" x2="35" y2="560" style="stroke:rgb(255,0,0);stroke-width:2" />
+	<line *ngFor= "let w of width"
+		[attr.x1]= "0"  
+		[attr.y1]= "w.id*35"
+		[attr.x2]="1050"
+		[attr.y2]= "w.id*35"
+		style="stroke:rgb(255,0,0);stroke-width:2" /> -->
+		<button (click)="createNewGame()">Create New Game</button>
+		<p>{{MAP[0][0]}}</p>
+		<div class="row" *ngFor= "let h of height" style="margin-left: 30px; width: 1050px; height: 35px;" [hidden] = "showMap == 0" >
+			<!-- <div   class="column" style="width: 35px; border: 4px solid #e0e0e0; height: 35px; border-radius: 5px; box-shadow: 1px 1px 1px #888888; float: left; cursor: pointer;" *ngFor="let w of width" >
+				
+			</div> -->
+			<div class="column" style="float: left; width: 35px; height: 35px;" *ngFor="let w of width">
+				
+				<div   class="column" style="width: 35px; border: 1px solid #000000; height: 35px; border-radius: 5px; background-color: #fAfAfA; box-shadow: 1px 1px 1px #888888; float: left; cursor: pointer;" [hidden] ="!(mapFlag[h.id-1][w.id -1] == 0)" (click)="checkMines(h.id-1, w.id-1)" (contextmenu)="markFlag(h.id-1, w.id-1)"> 
+				
+				</div>
+				<div   class="column" style="width: 35px; border: 1px dotted #fAfAfA; height: 35px;  background-color: #9E9E9E;  float: left; cursor: pointer; align-items: center; text-align: center;" [hidden] ="!(mapFlag[h.id-1][w.id -1] == 1)">
+					<span style="font-size: 25px; font-style: bold;  color: #01579B; " [hidden] ="!(MAP[h.id-1][w.id -1] >0)">{{MAP[h.id -1][w.id -1]}}</span>
+				
+				</div>
+				<div   class="column" style="width: 35px; border: 1px solid #000000; border-radius: 5px; height: 35px;  float: left; align-items: center;"  [hidden]="!(mapFlag[h.id-1][w.id -1] == 2)">
+					<img src="../assets/images/bomb.png" height="30" width="30" >
+				</div>
+				<div   class="column" style="width: 35px; border: 1px solid #000000; border-radius: 5px; height: 35px;  float: left; align-items: center; background-color: #fAfAfA;"  [hidden]="!(mapFlag[h.id-1][w.id -1] == 3)">
+					<img src="../assets/images/flag.png" height="30" width="30" >
+				</div>
+				<div   class="column" style="width: 35px; border: 1px solid #000000; border-radius: 5px; height: 35px;  float: left; align-items: center; background-color: #9E9E9E;"  [hidden]="!(mapFlag[h.id-1][w.id -1] == 4)">
+					<img src="../assets/images/broken-bomb.png" height="30" width="30" >
+				</div>
+				<div   class="column" style="width: 35px; border: 1px solid #000000; border-radius: 5px; height: 35px;   align-items: center; background-color: #f5f5f5;"  [hidden]="!(mapFlag[h.id-1][w.id -1] == 5)">
+					<img src="../assets/images/crossed-flag.png" height="30" width="30" >
+				</div>
+			</div>
+		</div>
+		
+<!-- </svg> -->
